@@ -6,12 +6,17 @@
 #endif
 
 #include "TaskCreateView.hpp"
+#include "TaskIndexView.hpp"
 
 class MainView : public wxFrame
 {
 private:
 	wxButton* taskCreateViewButton;
+	wxButton* taskIndexViewButton;
+	wxStaticBoxSizer* staticBoxSizer;
+
 	TaskCreateView* taskCreateView;
+	TaskIndexView* taskIndexView;
 public:
 	MainView();
 };
