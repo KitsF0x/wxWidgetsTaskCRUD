@@ -2,7 +2,7 @@
 
 bool Application::OnInit()
 {
-	MainFrame* frame = new MainFrame();
-	frame->Show(true);
+	TaskCreateView* taskCreateView = new TaskCreateView();
+	taskCreateView->Show(true);
 	return true;
 }

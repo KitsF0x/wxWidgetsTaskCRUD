@@ -5,7 +5,7 @@
 #include <wx/wx.h>
 #endif
 
-#include "MainFrame.hpp"
+#include "TaskCreateView.hpp"
 
 class Application : public wxApp
 {
