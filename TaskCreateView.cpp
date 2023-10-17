@@ -1,6 +1,6 @@
 #include "TaskCreateView.hpp"
 
-TaskCreateView::TaskCreateView() : wxFrame(NULL, wxID_ANY, "Application")
+TaskCreateView::TaskCreateView(wxWindow* parrent) : wxFrame(parrent, wxID_ANY, "Application")
 {
 	initComponents();
 	initComponentsLayout();

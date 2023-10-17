@@ -22,12 +22,12 @@ private:
 	wxStaticBoxSizer* titleBoxSizer;
 	wxStaticBoxSizer* descriptionBoxSizer;
 	wxStaticBoxSizer* staticBoxSizer;
-	
+
 	Task task;
 
 	void initComponents();
 	void initComponentsLayout();
 	void assignActionsToComponents();
 public:
-	TaskCreateView();
+	TaskCreateView(wxWindow* parrent);
 };
