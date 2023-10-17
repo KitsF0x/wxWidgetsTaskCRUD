@@ -19,6 +19,8 @@ private:
 	wxTextCtrl* descriptionTextInput;
 	wxButton* addButton;
 
+	wxStaticBoxSizer* titleBoxSizer;
+	wxStaticBoxSizer* descriptionBoxSizer;
 	wxStaticBoxSizer* staticBoxSizer;
 	
 	Task task;
