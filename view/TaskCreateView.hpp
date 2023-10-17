@@ -9,8 +9,10 @@
 #include <fmt/core.h>
 
 #include "Task.hpp"
+#include "IView.hpp"
 
-class TaskCreateView : public wxFrame
+
+class TaskCreateView : public wxFrame, IView
 {
 private:
 	wxStaticText* titleLabel;
@@ -26,9 +28,9 @@ private:
 	std::vector<Task>& tasks;
 	Task taskToAdd;
 
-	void initComponents();
-	void initComponentsLayout();
-	void assignActionsToComponents();
+	void initComponents() override;
+	void initComponentsLayout() override;
+	void assignActionsToComponents() override;
 public:
 	TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks);
 };

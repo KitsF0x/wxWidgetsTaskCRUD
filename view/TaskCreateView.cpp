@@ -3,10 +3,7 @@
 TaskCreateView::TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks) 
 	: wxFrame(parrent, wxID_ANY, "Application"), tasks(tasks)
 {
-	initComponents();
-	initComponentsLayout();
-	assignActionsToComponents();
-
+	init();
 	Centre();
 }
 

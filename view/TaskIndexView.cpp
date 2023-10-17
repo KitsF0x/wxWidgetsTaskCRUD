@@ -11,4 +11,17 @@ TaskIndexView::TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks)
 	}
 
 	tasksLabel = new wxStaticText(this, wxID_ANY, allTasksAsString);
+	init();
+}
+
+void TaskIndexView::initComponents()
+{
+}
+
+void TaskIndexView::initComponentsLayout()
+{
+}
+
+void TaskIndexView::assignActionsToComponents()
+{
 }

@@ -8,8 +8,9 @@
 #include <vector>
 #include <fmt/core.h>
 #include "Task.hpp"
+#include "IView.hpp"
 
-class TaskIndexView : public wxFrame
+class TaskIndexView : public wxFrame, IView
 {
 private:
 	std::vector<Task>& tasks;
@@ -17,4 +18,7 @@ private:
 
 public:
 	TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks);
+	void initComponents() override;
+	void initComponentsLayout() override;
+	void assignActionsToComponents() override;
 };

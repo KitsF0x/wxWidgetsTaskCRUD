@@ -7,18 +7,19 @@
 
 #include "TaskCreateView.hpp"
 #include "TaskIndexView.hpp"
+#include "IView.hpp"
 
-class MainView : public wxFrame
+class MainView : public wxFrame, IView
 {
 private:
 	wxButton* taskCreateViewButton;
 	wxButton* taskIndexViewButton;
 	wxStaticBoxSizer* staticBoxSizer;
 
-	TaskCreateView* taskCreateView;
-	TaskIndexView* taskIndexView;
-
 	std::vector<Task>& tasks;
 public:
 	MainView(std::vector<Task>& tasks);
+	void initComponents() override;
+	void initComponentsLayout() override;
+	void assignActionsToComponents() override;
 };
