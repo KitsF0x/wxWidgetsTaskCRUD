@@ -1,6 +1,7 @@
 #include "TaskCreateView.hpp"
 
-TaskCreateView::TaskCreateView(wxWindow* parrent) : wxFrame(parrent, wxID_ANY, "Application")
+TaskCreateView::TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks) 
+	: wxFrame(parrent, wxID_ANY, "Application"), tasks(tasks)
 {
 	initComponents();
 	initComponentsLayout();
@@ -40,16 +41,15 @@ void TaskCreateView::assignActionsToComponents()
 {
 	// Set title of the task model
 	titleTextInput->Bind(wxEVT_TEXT, [=](wxCommandEvent&) {
-		task.title = titleTextInput->GetValue().ToStdString();
+		taskToAdd.title = titleTextInput->GetValue().ToStdString();
 		});
 	// Set description of the task model
 	descriptionTextInput->Bind(wxEVT_TEXT, [=](wxCommandEvent&) {
-		task.description = descriptionTextInput->GetValue().ToStdString();
+		taskToAdd.description = descriptionTextInput->GetValue().ToStdString();
 		});
 	// Show task model details
 	addButton->Bind(wxEVT_BUTTON, [=](wxCommandEvent&) {
-		std::string msg = fmt::format("Task title: {}\nTask description: {}",
-		task.title, task.description);
-	wxMessageBox(msg);
+		tasks.push_back(taskToAdd);
+		wxMessageBox("Added new task");
 		});
 }

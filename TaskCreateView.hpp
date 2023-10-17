@@ -23,11 +23,12 @@ private:
 	wxStaticBoxSizer* descriptionBoxSizer;
 	wxStaticBoxSizer* staticBoxSizer;
 
-	Task task;
+	std::vector<Task>& tasks;
+	Task taskToAdd;
 
 	void initComponents();
 	void initComponentsLayout();
 	void assignActionsToComponents();
 public:
-	TaskCreateView(wxWindow* parrent);
+	TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks);
 };

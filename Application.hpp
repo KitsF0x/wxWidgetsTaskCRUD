@@ -9,6 +9,8 @@
 
 class Application : public wxApp
 {
+private:
+	std::vector<Task> tasks;
 public:
 	virtual bool OnInit() override;
 };

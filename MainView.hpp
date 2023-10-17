@@ -17,6 +17,8 @@ private:
 
 	TaskCreateView* taskCreateView;
 	TaskIndexView* taskIndexView;
+
+	std::vector<Task>& tasks;
 public:
-	MainView();
+	MainView(std::vector<Task>& tasks);
 };

@@ -6,13 +6,15 @@
 #endif
 
 #include <vector>
+#include <fmt/core.h>
 #include "Task.hpp"
 
 class TaskIndexView : public wxFrame
 {
 private:
-	std::vector<Task> tasks;
+	std::vector<Task>& tasks;
+	wxStaticText* tasksLabel;
 
 public:
-	TaskIndexView(wxWindow* parrent);
+	TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks);
 };
