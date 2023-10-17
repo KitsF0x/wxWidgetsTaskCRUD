@@ -6,20 +6,25 @@
 #include <wx/stattext.h>
 #endif
 
+#include <fmt/core.h>
+
 #include "Task.hpp"
 
 class TaskCreateView : public wxFrame
 {
 private:
-	wxStaticText* taskDetailsStaticText;
-	wxButton* addTaskButton;
-	wxTextCtrl* taskTitleTextCtrl;
-	wxStaticBoxSizer* staticBoxSizer;
+	wxStaticText* titleLabel;
+	wxStaticText* descriptionLabel;
+	wxTextCtrl* titleTextInput;
+	wxTextCtrl* descriptionTextInput;
+	wxButton* addButton;
 
+	wxStaticBoxSizer* staticBoxSizer;
+	
 	Task task;
 
 	void initComponents();
-	void initSizer();
+	void initComponentsLayout();
 	void assignActionsToComponents();
 public:
 	TaskCreateView();
