@@ -12,7 +12,7 @@
 class TaskIndexView : public BaseView
 {
 private:
-	std::vector<Task>& tasks;
+	TaskRepository& tasks;
 	wxListView* listOfTasks;
 
 	wxStaticText* selectedTaskTitle;
@@ -27,7 +27,7 @@ private:
 
 	void updateListOfTasks();
 public:
-	TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks);
+	TaskIndexView(wxWindow* parrent, TaskRepository& tasks);
 	void initComponents() override;
 	void initComponentsLayout() override;
 	void assignActionsToComponents() override;

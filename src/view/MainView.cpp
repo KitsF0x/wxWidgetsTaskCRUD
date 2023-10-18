@@ -1,6 +1,6 @@
 #include "MainView.hpp"
 
-MainView::MainView(wxWindow* parrent, std::vector<Task>& tasks)
+MainView::MainView(wxWindow* parrent, TaskRepository& tasks)
 	: BaseView(parrent, "wxWidgets task CRUD"), tasks(tasks)
 {
 	init();

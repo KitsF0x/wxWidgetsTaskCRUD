@@ -1,6 +1,6 @@
 #include "TaskCreateView.hpp"
 
-TaskCreateView::TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks)
+TaskCreateView::TaskCreateView(wxWindow* parrent, TaskRepository& tasks)
 	: BaseView(parrent, "Create new task"), tasks(tasks)
 {
 	init();
@@ -46,7 +46,7 @@ void TaskCreateView::assignActionsToComponents()
 		});
 	// Show task model details
 	addButton->Bind(wxEVT_BUTTON, [=](wxCommandEvent&) {
-		tasks.push_back(taskToAdd);
+		tasks.add(taskToAdd);
 		wxMessageBox("Added new task");
 		});
 }

@@ -6,11 +6,13 @@
 #endif
 
 #include "MainView.hpp"
+#include "TaskRepository.hpp"
 
 class Application : public wxApp
 {
 private:
-	std::vector<Task> tasks;
+	TaskRepository tasks;
+
 public:
 	virtual bool OnInit() override;
 };

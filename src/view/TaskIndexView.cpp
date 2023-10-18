@@ -1,6 +1,6 @@
 #include "TaskIndexView.hpp"
 
-TaskIndexView::TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks)
+TaskIndexView::TaskIndexView(wxWindow* parrent, TaskRepository& tasks)
 	: BaseView(parrent, "List of tasks"), tasks(tasks)
 {
 	init();
@@ -15,11 +15,12 @@ void TaskIndexView::updateListOfTasks()
 	listOfTasks->InsertColumn(2, "Description");
 	listOfTasks->SetColumnWidth(2, 420);
 
+	auto tasksVec = tasks.getAll();
 	for (std::size_t i = 0; i < tasks.size(); i++)
 	{
-		listOfTasks->InsertItem(i, std::to_string(tasks.at(i).id));
-		listOfTasks->SetItem(i, 1, tasks.at(i).title);
-		listOfTasks->SetItem(i, 2, tasks.at(i).description);
+		listOfTasks->InsertItem(i, std::to_string(tasksVec.at(i).id));
+		listOfTasks->SetItem(i, 1, tasksVec.at(i).title);
+		listOfTasks->SetItem(i, 2, tasksVec.at(i).description);
 	}
 }
 

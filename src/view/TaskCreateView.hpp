@@ -4,6 +4,7 @@
 
 #include "Task.hpp"
 #include "BaseView.hpp"
+#include "TaskRepository.hpp"
 
 class TaskCreateView : public BaseView
 {
@@ -14,12 +15,12 @@ private:
 	wxTextCtrl* descriptionTextInput;
 	wxButton* addButton;
 
-	std::vector<Task>& tasks;
+	TaskRepository& tasks;
 	Task taskToAdd;
 
 	void initComponents() override;
 	void initComponentsLayout() override;
 	void assignActionsToComponents() override;
 public:
-	TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks);
+	TaskCreateView(wxWindow* parrent, TaskRepository& tasks);
 };
