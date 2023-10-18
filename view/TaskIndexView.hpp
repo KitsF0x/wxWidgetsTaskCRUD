@@ -25,7 +25,7 @@ private:
 
 	std::size_t selectedTask{ 0 };
 
-	void selectFirstElementIfExists();
+	void updateListOfTasks();
 public:
 	TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks);
 	void initComponents() override;

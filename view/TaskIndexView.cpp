@@ -4,30 +4,27 @@ TaskIndexView::TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks)
 	: BaseView(parrent, "List of tasks"), tasks(tasks)
 {
 	init();
+}
+
+void TaskIndexView::updateListOfTasks()
+{
+	listOfTasks->ClearAll();
+	listOfTasks->InsertColumn(0, "Title");
+	listOfTasks->SetColumnWidth(0, 120);
+	listOfTasks->InsertColumn(1, "Description");
+	listOfTasks->SetColumnWidth(1, 420);
+
 	for (std::size_t i = 0; i < tasks.size(); i++)
 	{
 		listOfTasks->InsertItem(i, tasks.at(i).title);
 		listOfTasks->SetItem(i, 1, tasks.at(i).description);
-	}
-	selectFirstElementIfExists();
-}
-
-void TaskIndexView::selectFirstElementIfExists()
-{
-	if (listOfTasks->GetSize().y != 0) {
-		selectedTask = 0;
-		listOfTasks->SetItemState(0, wxLIST_STATE_SELECTED, wxLIST_STATE_SELECTED);
 	}
 }
 
 void TaskIndexView::initComponents()
 {
 	listOfTasks = new wxListView(this, wxID_ANY);
-	listOfTasks->InsertColumn(0, "Title");
-	listOfTasks->SetColumnWidth(0, 120);
-	listOfTasks->InsertColumn(1, "Description");
-	listOfTasks->SetColumnWidth(1, 420);
-
+	updateListOfTasks();
 	addTaskButton = new wxButton(this, wxID_ANY, "New");
 	showTaskButton = new wxButton(this, wxID_ANY, "Show");
 	editTaskButton = new wxButton(this, wxID_ANY, "Edit");;
@@ -67,5 +64,10 @@ void TaskIndexView::assignActionsToComponents()
 	addTaskButton->Bind(wxEVT_BUTTON, [=](wxCommandEvent&) {
 		TaskCreateView* view = new TaskCreateView(this, tasks);
 		view->Show();
+
+		view->Bind(wxEVT_CLOSE_WINDOW, [=](wxCloseEvent& event) {
+			updateListOfTasks();
+			event.Skip();
+			});
 		});
 }
