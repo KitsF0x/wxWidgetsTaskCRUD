@@ -9,15 +9,17 @@ TaskIndexView::TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks)
 void TaskIndexView::updateListOfTasks()
 {
 	listOfTasks->ClearAll();
-	listOfTasks->InsertColumn(0, "Title");
-	listOfTasks->SetColumnWidth(0, 120);
-	listOfTasks->InsertColumn(1, "Description");
-	listOfTasks->SetColumnWidth(1, 420);
+	listOfTasks->InsertColumn(0, "Id");
+	listOfTasks->InsertColumn(1, "Title");
+	listOfTasks->SetColumnWidth(1, 120);
+	listOfTasks->InsertColumn(2, "Description");
+	listOfTasks->SetColumnWidth(2, 420);
 
 	for (std::size_t i = 0; i < tasks.size(); i++)
 	{
-		listOfTasks->InsertItem(i, tasks.at(i).title);
-		listOfTasks->SetItem(i, 1, tasks.at(i).description);
+		listOfTasks->InsertItem(i, std::to_string(tasks.at(i).id));
+		listOfTasks->SetItem(i, 1, tasks.at(i).title);
+		listOfTasks->SetItem(i, 2, tasks.at(i).description);
 	}
 }
 
