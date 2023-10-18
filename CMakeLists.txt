@@ -5,7 +5,5 @@ find_package(wxWidgets CONFIG REQUIRED)
 find_package(fmt CONFIG REQUIRED)
 find_package(GTest CONFIG REQUIRED)
 
-add_subdirectory(app)
-add_subdirectory(model)
-add_subdirectory(view)
+add_subdirectory(src)
 add_subdirectory(tests)
