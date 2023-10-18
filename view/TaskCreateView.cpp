@@ -1,6 +1,6 @@
 #include "TaskCreateView.hpp"
 
-TaskCreateView::TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks) 
+TaskCreateView::TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks)
 	: wxFrame(parrent, wxID_ANY, "Application"), tasks(tasks)
 {
 	init();
@@ -14,14 +14,14 @@ void TaskCreateView::initComponents()
 	titleLabel = new wxStaticText(this, wxID_ANY, "Task title: ");
 	descriptionLabel = new wxStaticText(this, wxID_ANY, "Task description: ");
 	addButton = new wxButton(this, wxID_ANY, "Create task", wxDefaultPosition);
-
-	staticBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this, "Create new task");
-	titleBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this);
-	descriptionBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this);
 }
 
 void TaskCreateView::initComponentsLayout()
 {
+	wxStaticBoxSizer* titleBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this, "Create new task");
+	wxStaticBoxSizer* descriptionBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this);
+	wxStaticBoxSizer* staticBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this);
+
 	titleBoxSizer->Add(titleLabel, 0, wxALL, 5);
 	titleBoxSizer->Add(titleTextInput, 0, wxALL, 5);
 	staticBoxSizer->Add(titleBoxSizer, wxEXPAND, 0);

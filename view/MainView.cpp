@@ -1,6 +1,6 @@
 #include "MainView.hpp"
 
-MainView::MainView(std::vector<Task>& tasks) 
+MainView::MainView(std::vector<Task>& tasks)
 	: wxFrame(nullptr, wxID_ANY, "Task manager"), tasks(tasks)
 {
 	init();
@@ -10,11 +10,12 @@ void MainView::initComponents()
 {
 	taskCreateViewButton = new wxButton(this, wxID_ANY, "Create new task");
 	taskIndexViewButton = new wxButton(this, wxID_ANY, "Show all tasks");
-	staticBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this);
 }
 
 void MainView::initComponentsLayout()
 {
+	wxStaticBoxSizer* staticBoxSizer = new wxStaticBoxSizer(wxVERTICAL, this);
+
 	staticBoxSizer->Add(taskCreateViewButton, 0, wxALL, 5);
 	staticBoxSizer->Add(taskIndexViewButton, 0, wxALL, 5);
 	SetSizerAndFit(staticBoxSizer);

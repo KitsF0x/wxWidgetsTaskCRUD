@@ -14,7 +14,6 @@ class MainView : public wxFrame, IView
 private:
 	wxButton* taskCreateViewButton;
 	wxButton* taskIndexViewButton;
-	wxStaticBoxSizer* staticBoxSizer;
 
 	std::vector<Task>& tasks;
 public:

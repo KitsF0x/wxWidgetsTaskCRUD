@@ -11,7 +11,6 @@
 #include "Task.hpp"
 #include "IView.hpp"
 
-
 class TaskCreateView : public wxFrame, IView
 {
 private:
@@ -20,10 +19,6 @@ private:
 	wxTextCtrl* titleTextInput;
 	wxTextCtrl* descriptionTextInput;
 	wxButton* addButton;
-
-	wxStaticBoxSizer* titleBoxSizer;
-	wxStaticBoxSizer* descriptionBoxSizer;
-	wxStaticBoxSizer* staticBoxSizer;
 
 	std::vector<Task>& tasks;
 	Task taskToAdd;
