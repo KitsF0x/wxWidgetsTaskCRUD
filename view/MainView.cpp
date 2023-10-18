@@ -1,7 +1,7 @@
 #include "MainView.hpp"
 
-MainView::MainView(std::vector<Task>& tasks)
-	: wxFrame(nullptr, wxID_ANY, "Task manager"), tasks(tasks)
+MainView::MainView(wxWindow* parrent, std::vector<Task>& tasks)
+	: BaseView(parrent, "wxWidgets task CRUD"), tasks(tasks)
 {
 	init();
 }

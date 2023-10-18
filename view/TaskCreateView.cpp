@@ -1,7 +1,7 @@
 #include "TaskCreateView.hpp"
 
 TaskCreateView::TaskCreateView(wxWindow* parrent, std::vector<Task>& tasks)
-	: wxFrame(parrent, wxID_ANY, "Application"), tasks(tasks)
+	: BaseView(parrent, "Create new task"), tasks(tasks)
 {
 	init();
 	Centre();

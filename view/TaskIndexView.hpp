@@ -1,16 +1,12 @@
 #pragma once
 
-#include <wx/wxprec.h>
-#ifndef WX_PRECOMP
-#include <wx/wx.h>
-#endif
-
 #include <vector>
 #include <fmt/core.h>
-#include "Task.hpp"
-#include "IView.hpp"
 
-class TaskIndexView : public wxFrame, IView
+#include "Task.hpp"
+#include "BaseView.hpp"
+
+class TaskIndexView : public BaseView
 {
 private:
 	std::vector<Task>& tasks;

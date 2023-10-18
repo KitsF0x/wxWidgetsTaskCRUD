@@ -1,7 +1,7 @@
 #include "TaskIndexView.hpp"
 
 TaskIndexView::TaskIndexView(wxWindow* parrent, std::vector<Task>& tasks)
-	: wxFrame(parrent, wxID_ANY, "List of tasks"), tasks(tasks)
+	: BaseView(parrent, "List of tasks"), tasks(tasks)
 {
 	std::string allTasksAsString;
 

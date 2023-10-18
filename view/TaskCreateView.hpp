@@ -1,17 +1,11 @@
 #pragma once
 
-#include <wx/wxprec.h>
-#ifndef WX_PRECOMP
-#include <wx/wx.h>
-#include <wx/stattext.h>
-#endif
-
 #include <fmt/core.h>
 
 #include "Task.hpp"
-#include "IView.hpp"
+#include "BaseView.hpp"
 
-class TaskCreateView : public wxFrame, IView
+class TaskCreateView : public BaseView
 {
 private:
 	wxStaticText* titleLabel;

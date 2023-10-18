@@ -1,15 +1,10 @@
 #pragma once
 
-#include <wx/wxprec.h>
-#ifndef WX_PRECOMP
-#include <wx/wx.h>
-#endif
-
 #include "TaskCreateView.hpp"
 #include "TaskIndexView.hpp"
-#include "IView.hpp"
+#include "BaseView.hpp"
 
-class MainView : public wxFrame, IView
+class MainView : public BaseView
 {
 private:
 	wxButton* taskCreateViewButton;
@@ -17,7 +12,7 @@ private:
 
 	std::vector<Task>& tasks;
 public:
-	MainView(std::vector<Task>& tasks);
+	MainView(wxWindow* parrent, std::vector<Task>& tasks);
 	void initComponents() override;
 	void initComponentsLayout() override;
 	void assignActionsToComponents() override;
