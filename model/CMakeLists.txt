@@ -1,2 +1,6 @@
-add_library(model INTERFACE)
-target_include_directories(model INTERFACE .)
+add_library(model STATIC
+	"TaskNotFoundException.cpp"
+	"TaskIdDuplicateException.cpp"
+	"TaskRepository.cpp"
+)
+target_include_directories(model PUBLIC .)
