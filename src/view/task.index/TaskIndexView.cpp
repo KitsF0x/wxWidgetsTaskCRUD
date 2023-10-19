@@ -14,27 +14,21 @@ void TaskIndexView::initComponents()
 {
 	updateListOfTasks();
 
-	selectedTaskTitle = new wxStaticText(this, wxID_ANY, "");
-	selectedTaskDescription = new wxStaticText(this, wxID_ANY, "");
-
-	listViewOfTasks = new ListViewOfTasks(this, tasks, selectedTaskTitle, selectedTaskDescription);
+	selectedTaskDetailsPanel = new SelectedTaskDetailsPanel(this);
+	listViewOfTasks = new ListViewOfTasks(this, tasks, selectedTaskDetailsPanel);
 	operationButtonsPanel = new OperationButtonsPanel(this, tasks, listViewOfTasks);
 }
 
 void TaskIndexView::initComponentsLayout()
 {
-	// Main
 	wxStaticBoxSizer* mainSizer = new wxStaticBoxSizer(wxHORIZONTAL, this, "List of tasks");
 	mainSizer->Add(listViewOfTasks, 0, wxEXPAND | wxALL, 5);
 
-	// Details of the task
-	wxStaticBoxSizer* detailsSizer = new wxStaticBoxSizer(wxVERTICAL, this);
-	detailsSizer->Add(selectedTaskTitle, 1, wxEXPAND | wxALL, 5);
-	detailsSizer->Add(selectedTaskDescription, 1, wxEXPAND | wxALL, 5);
+	wxBoxSizer* detailsAndButtonsSizer = new wxBoxSizer(wxVERTICAL);
 
-	// Add buttons to details
-	detailsSizer->Add(operationButtonsPanel, 1, wxEXPAND | wxALL);
-	mainSizer->Add(detailsSizer, 1, wxEXPAND | wxALL);
+	detailsAndButtonsSizer->Add(selectedTaskDetailsPanel, 1, wxEXPAND | wxALL);
+	detailsAndButtonsSizer->Add(operationButtonsPanel, 1, wxEXPAND | wxALL);
+	mainSizer->Add(detailsAndButtonsSizer, 0, wxEXPAND | wxALL);
 
 	SetSizerAndFit(mainSizer);
 }

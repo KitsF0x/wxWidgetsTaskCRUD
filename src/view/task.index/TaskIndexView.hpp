@@ -8,6 +8,7 @@
 #include "TaskCreateView.hpp"
 #include "OperationButtonsPanel.hpp"
 #include "ListViewOfTasks.hpp"
+#include "SelectedTaskDetailsPanel.hpp"
 
 #include <wx/listctrl.h>
 
@@ -18,9 +19,7 @@ private:
 
 	OperationButtonsPanel* operationButtonsPanel;
 	ListViewOfTasks* listViewOfTasks;
-
-	wxStaticText* selectedTaskTitle;
-	wxStaticText* selectedTaskDescription;
+	SelectedTaskDetailsPanel* selectedTaskDetailsPanel;
 
 	void updateListOfTasks();
 public:

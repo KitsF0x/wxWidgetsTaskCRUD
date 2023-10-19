@@ -28,10 +28,10 @@ OperationButtonsPanel::OperationButtonsPanel(wxWindow* parrent, TaskRepository& 
 
 	// Buttons
 	wxStaticBoxSizer* buttonsSizer = new wxStaticBoxSizer(wxHORIZONTAL, this, "Operation buttons");
-	buttonsSizer->Add(addTaskButton, 1, wxEXPAND | wxALL, 5);
-	buttonsSizer->Add(showTaskButton, 1, wxEXPAND | wxALL, 5);
-	buttonsSizer->Add(editTaskButton, 1, wxEXPAND | wxALL, 5);
-	buttonsSizer->Add(deleteTaskButton, 1, wxEXPAND | wxALL, 5);
+	buttonsSizer->Add(addTaskButton);
+	buttonsSizer->Add(showTaskButton);
+	buttonsSizer->Add(editTaskButton);
+	buttonsSizer->Add(deleteTaskButton);
 	SetSizerAndFit(buttonsSizer);
 
 	addTaskButton->Bind(wxEVT_BUTTON, [=](wxCommandEvent&) {

@@ -3,26 +3,20 @@
 #include <wx/wx.h>
 #include <wx/listctrl.h>
 #include "TaskRepository.hpp"
+#include "SelectedTaskDetailsPanel.hpp"
 
 class ListViewOfTasks : public wxPanel
 {
 private:
 	wxListView* listOfTasks;
-
 	TaskRepository& tasks;
-
-	wxStaticText* selectedTaskTitle;
-	wxStaticText* selectedTaskDescription;
-
-	const std::string TASK_TITLE_LABEL{ "Task title: " };
-	const std::string TASK_DESCRIPTION_LABEL{ "Task description: " };
+	SelectedTaskDetailsPanel* selectedTaskDetailsPanel;
 
 public:
 	ListViewOfTasks(
 		wxWindow* parrent,
 		TaskRepository& tasks,
-		wxStaticText* selectedTaskTitle,
-		wxStaticText* selectedTaskDescription
+		SelectedTaskDetailsPanel* selectedTaskDetailsPanel
 	);
 	void recreateList();
 	wxListView* getListView();

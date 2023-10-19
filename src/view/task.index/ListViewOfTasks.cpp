@@ -3,13 +3,11 @@
 ListViewOfTasks::ListViewOfTasks(
 	wxWindow* parrent,
 	TaskRepository& tasks,
-	wxStaticText* selectedTaskTitle,
-	wxStaticText* selectedTaskDescription)
+	SelectedTaskDetailsPanel* selectedTaskDetailsPanel)
 	:
 	wxPanel(parrent, wxID_ANY),
 	tasks(tasks),
-	selectedTaskTitle(selectedTaskTitle),
-	selectedTaskDescription(selectedTaskDescription)
+	selectedTaskDetailsPanel(selectedTaskDetailsPanel)
 {
 	listOfTasks = new wxListView(this, wxID_ANY);
 	wxBoxSizer* sizer = new wxBoxSizer(wxVERTICAL);
@@ -17,8 +15,15 @@ ListViewOfTasks::ListViewOfTasks(
 	SetSizer(sizer);
 
 	listOfTasks->Bind(wxEVT_COMMAND_LIST_ITEM_SELECTED, [=](wxListEvent& event) {
-		selectedTaskTitle->SetLabelText(TASK_TITLE_LABEL + listOfTasks->GetItemText(event.GetIndex(), 1));
-		selectedTaskDescription->SetLabelText(TASK_DESCRIPTION_LABEL + listOfTasks->GetItemText(event.GetIndex(), 2));
+		try
+		{
+			Task task = this->tasks.getById(std::stoull(event.GetItem().m_text.ToStdString()));
+			selectedTaskDetailsPanel->updateDetailsFromTask(task);
+		}
+		catch (std::exception& ex)
+		{
+			wxMessageBox(ex.what(), "Error!", wxICON_ERROR);
+		}
 		});
 	recreateList();
 }
