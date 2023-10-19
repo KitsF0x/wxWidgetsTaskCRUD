@@ -6,6 +6,8 @@
 #include "Task.hpp"
 #include "BaseView.hpp"
 #include "TaskCreateView.hpp"
+#include "OperationButtonsPanel.hpp"
+#include "ListViewOfTasks.hpp"
 
 #include <wx/listctrl.h>
 
@@ -13,20 +15,12 @@ class TaskIndexView : public BaseView
 {
 private:
 	TaskRepository& tasks;
-	wxListView* listOfTasks;
+
+	OperationButtonsPanel* operationButtonsPanel;
+	ListViewOfTasks* listViewOfTasks;
 
 	wxStaticText* selectedTaskTitle;
 	wxStaticText* selectedTaskDescription;
-
-	wxButton* addTaskButton;
-	wxButton* showTaskButton;
-	wxButton* editTaskButton;
-	wxButton* deleteTaskButton;
-
-	std::size_t selectedTask{ 0 };
-
-	const std::string TASK_TITLE_LABEL{ "Task title: " };
-	const std::string TASK_DESCRIPTION_LABEL{ "Task description: " };
 
 	void updateListOfTasks();
 public:
