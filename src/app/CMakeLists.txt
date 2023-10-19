@@ -8,4 +8,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 	wx::base
 	model
 	view
+	view-main
 )

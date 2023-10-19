@@ -1,13 +1,4 @@
-add_library(view STATIC 
-	"MainView.cpp"
-	"TaskCreateView.cpp"
-	"TaskIndexView.cpp"
-	"BaseView.cpp"
-)
-target_include_directories(view PUBLIC .)
-target_link_libraries(view PRIVATE 	
-	wx::core 
-	wx::base
-	fmt::fmt
-	model
-)
+add_subdirectory(common)
+add_subdirectory(main)
+add_subdirectory(task.create)
+add_subdirectory(task.index)
