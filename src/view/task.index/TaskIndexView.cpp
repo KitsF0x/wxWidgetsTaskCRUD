@@ -6,14 +6,8 @@ TaskIndexView::TaskIndexView(wxWindow* parrent, TaskRepository& tasks)
 	init();
 }
 
-void TaskIndexView::updateListOfTasks()
-{
-}
-
 void TaskIndexView::initComponents()
 {
-	updateListOfTasks();
-
 	selectedTaskDetailsPanel = new SelectedTaskDetailsPanel(this);
 	listViewOfTasks = new ListViewOfTasks(this, tasks, selectedTaskDetailsPanel);
 	operationButtonsPanel = new OperationButtonsPanel(this, tasks, listViewOfTasks);

@@ -21,7 +21,6 @@ private:
 	ListViewOfTasks* listViewOfTasks;
 	SelectedTaskDetailsPanel* selectedTaskDetailsPanel;
 
-	void updateListOfTasks();
 public:
 	TaskIndexView(wxWindow* parrent, TaskRepository& tasks);
 	void initComponents() override;
