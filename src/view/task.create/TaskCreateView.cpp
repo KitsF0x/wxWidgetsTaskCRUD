@@ -46,6 +46,7 @@ void TaskCreateView::assignActionsToComponents()
 		});
 	// Show task model details
 	addButton->Bind(wxEVT_BUTTON, [=](wxCommandEvent&) {
+		taskToAdd.id = rand() % 2000;
 		tasks.add(taskToAdd);
 		wxMessageBox("Added new task");
 		});
