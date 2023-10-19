@@ -12,11 +12,15 @@ ListViewOfTasks::ListViewOfTasks(
 	selectedTaskDescription(selectedTaskDescription)
 {
 	listOfTasks = new wxListView(this, wxID_ANY);
+	wxBoxSizer* sizer = new wxBoxSizer(wxVERTICAL);
+	sizer->Add(listOfTasks, 1, wxEXPAND | wxALL, 5);
+	SetSizer(sizer);
 
 	listOfTasks->Bind(wxEVT_COMMAND_LIST_ITEM_SELECTED, [=](wxListEvent& event) {
 		selectedTaskTitle->SetLabelText(TASK_TITLE_LABEL + listOfTasks->GetItemText(event.GetIndex(), 1));
 		selectedTaskDescription->SetLabelText(TASK_DESCRIPTION_LABEL + listOfTasks->GetItemText(event.GetIndex(), 2));
 		});
+	recreateList();
 }
 
 void ListViewOfTasks::recreateList()
