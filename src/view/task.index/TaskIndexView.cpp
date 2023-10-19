@@ -33,8 +33,8 @@ void TaskIndexView::initComponents()
 	editTaskButton = new wxButton(this, wxID_ANY, "Edit");;
 	deleteTaskButton = new wxButton(this, wxID_ANY, "Delete");;
 
-	selectedTaskTitle = new wxStaticText(this, wxID_ANY, "Task title: ");
-	selectedTaskDescription = new wxStaticText(this, wxID_ANY, "Task description: ");
+	selectedTaskTitle = new wxStaticText(this, wxID_ANY, TASK_TITLE_LABEL);
+	selectedTaskDescription = new wxStaticText(this, wxID_ANY, TASK_DESCRIPTION_LABEL);
 }
 
 void TaskIndexView::initComponentsLayout()
@@ -72,5 +72,9 @@ void TaskIndexView::assignActionsToComponents()
 			updateListOfTasks();
 			event.Skip();
 			});
+		});
+	listOfTasks->Bind(wxEVT_COMMAND_LIST_ITEM_SELECTED, [=](wxListEvent& event) {
+		selectedTaskTitle->SetLabelText(TASK_TITLE_LABEL + listOfTasks->GetItemText(event.GetIndex(), 1));
+		selectedTaskDescription->SetLabelText(TASK_DESCRIPTION_LABEL + listOfTasks->GetItemText(event.GetIndex(), 2));
 		});
 }

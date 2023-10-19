@@ -25,6 +25,9 @@ private:
 
 	std::size_t selectedTask{ 0 };
 
+	const std::string TASK_TITLE_LABEL{ "Task title: " };
+	const std::string TASK_DESCRIPTION_LABEL{ "Task description: " };
+
 	void updateListOfTasks();
 public:
 	TaskIndexView(wxWindow* parrent, TaskRepository& tasks);
