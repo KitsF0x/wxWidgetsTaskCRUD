@@ -2,8 +2,8 @@
 
 #include <fmt/core.h>
 
-#include "Task.hpp"
 #include "BaseView.hpp"
+#include "Task.hpp"
 #include "TaskRepository.hpp"
 
 class TaskCreateView : public BaseView

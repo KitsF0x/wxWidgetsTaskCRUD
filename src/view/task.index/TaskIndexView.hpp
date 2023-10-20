@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <fmt/core.h>
+#include <wx/listctrl.h>
 
 #include "Task.hpp"
 #include "BaseView.hpp"
@@ -10,7 +11,6 @@
 #include "ListViewOfTasks.hpp"
 #include "SelectedTaskDetailsPanel.hpp"
 
-#include <wx/listctrl.h>
 
 class TaskIndexView : public BaseView
 {

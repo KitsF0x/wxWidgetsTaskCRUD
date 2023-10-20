@@ -2,6 +2,7 @@
 
 #include <wx/wx.h>
 #include <wx/listctrl.h>
+
 #include "TaskRepository.hpp"
 #include "SelectedTaskDetailsPanel.hpp"
 

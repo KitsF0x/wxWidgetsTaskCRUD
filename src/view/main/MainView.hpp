@@ -1,8 +1,8 @@
 #pragma once
 
+#include "BaseView.hpp"
 #include "TaskCreateView.hpp"
 #include "TaskIndexView.hpp"
-#include "BaseView.hpp"
 #include "TaskRepository.hpp"
 
 class MainView : public BaseView

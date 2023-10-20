@@ -1,6 +1,7 @@
 #pragma once
 
 #include <wx/wx.h>
+
 #include "Task.hpp"
 
 class SelectedTaskDetailsPanel : public wxPanel
