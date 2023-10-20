@@ -16,7 +16,7 @@ SelectedTaskDetailsPanel::SelectedTaskDetailsPanel(wxWindow* parrent)
 
 void SelectedTaskDetailsPanel::updateDetailsFromTask(Task task)
 {
-	selectedTaskId->GetLabelText(TASK_ID_LABEL + std::to_string(task.id));
+	selectedTaskId->SetLabelText(TASK_ID_LABEL + std::to_string(task.id));
 	selectedTaskTitle->SetLabelText(TASK_TITLE_LABEL + task.title);
 	selectedTaskDescription->SetLabelText(TASK_DESCRIPTION_LABEL + task.description);
 }
